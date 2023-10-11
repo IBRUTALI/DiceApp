@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".presentation.game.GameFragment">
+
+    <TextView
+        android:id="@+id/nameOfEntity"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/base_line_spacing"
+        android:text="@string/name"
+        app:layout_constraintBottom_toTopOf="@+id/imageOfEntity"
+        app:layout_constraintEnd_toEndOf="@+id/imageOfEntity"
+        app:layout_constraintStart_toStartOf="@+id/imageOfEntity" />
+
+    <ImageView
+        android:id="@+id/imageOfEntity"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:layout_marginTop="48dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:src="@tools:sample/avatars" />
+
+    <ProgressBar
+        android:id="@+id/progressHPOfEntity"
+        style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+        android:layout_width="0dp"
+        android:paddingVertical="2dp"
+        android:layout_height="wrap_content"
+        android:scaleY="3"
+        app:layout_constraintEnd_toEndOf="@+id/imageOfEntity"
+        app:layout_constraintStart_toStartOf="@+id/imageOfEntity"
+        app:layout_constraintTop_toBottomOf="@+id/imageOfEntity" />
+
+    <TextView
+        android:id="@+id/hpOfEntity"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/hp"
+        app:layout_constraintEnd_toEndOf="@+id/imageOfEntity"
+        app:layout_constraintStart_toStartOf="@+id/imageOfEntity"
+        app:layout_constraintTop_toBottomOf="@+id/imageOfEntity" />
+
+    <TextView
+        android:id="@+id/armorOfEntity"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/armor"
+        android:layout_marginTop="@dimen/base_line_spacing"
+        app:layout_constraintEnd_toEndOf="@+id/imageOfEntity"
+        app:layout_constraintStart_toStartOf="@+id/imageOfEntity"
+        app:layout_constraintTop_toBottomOf="@+id/hpOfEntity" />
+
+    <TextView
+        android:id="@+id/attackPowerOfEntity"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/attack_power"
+        android:layout_marginTop="@dimen/base_line_spacing"
+        app:layout_constraintEnd_toEndOf="@+id/imageOfEntity"
+        app:layout_constraintStart_toStartOf="@+id/imageOfEntity"
+        app:layout_constraintTop_toBottomOf="@+id/armorOfEntity" />
+
+    <View
+        android:id="@+id/view"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@android:color/darker_gray"
+        app:layout_constraintBottom_toTopOf="@+id/imageOfPlayer"
+        app:layout_constraintTop_toBottomOf="@+id/imageOfEntity" />
+
+    <ImageButton
+        android:id="@+id/attackEntity"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:backgroundTint="@android:color/transparent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/view"
+        tools:srcCompat="@drawable/battle" />
+
+    <ImageView
+        android:id="@+id/imageOfPlayer"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:layout_marginBottom="48dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:src="@tools:sample/avatars" />
+
+    <TextView
+        android:id="@+id/nameOfPlayer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/base_line_spacing"
+        android:text="@string/name"
+        app:layout_constraintEnd_toEndOf="@+id/imageOfPlayer"
+        app:layout_constraintStart_toStartOf="@+id/imageOfPlayer"
+        app:layout_constraintTop_toBottomOf="@+id/imageOfPlayer" />
+
+    <ProgressBar
+        android:id="@+id/progressHPOfPlayer"
+        style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:scaleY="3"
+        android:paddingVertical="1dp"
+        app:layout_constraintBottom_toTopOf="@+id/imageOfPlayer"
+        app:layout_constraintEnd_toEndOf="@+id/imageOfPlayer"
+        app:layout_constraintStart_toStartOf="@+id/imageOfPlayer" />
+
+    <TextView
+        android:id="@+id/hpOfPlayer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="HP"
+        app:layout_constraintBottom_toTopOf="@+id/imageOfPlayer"
+        app:layout_constraintEnd_toEndOf="@+id/imageOfPlayer"
+        app:layout_constraintStart_toStartOf="@+id/imageOfPlayer" />
+
+    <TextView
+        android:id="@+id/armorOfPlayer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/base_line_spacing"
+        android:text="@string/armor"
+        app:layout_constraintBottom_toTopOf="@+id/hpOfPlayer"
+        app:layout_constraintEnd_toEndOf="@+id/hpOfPlayer"
+        app:layout_constraintStart_toStartOf="@+id/hpOfPlayer" />
+
+    <TextView
+        android:id="@+id/attackPowerOfPlayer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/attack_power"
+        android:layout_marginBottom="@dimen/base_line_spacing"
+        app:layout_constraintBottom_toTopOf="@+id/armorOfPlayer"
+        app:layout_constraintEnd_toEndOf="@+id/armorOfPlayer"
+        app:layout_constraintStart_toStartOf="@+id/armorOfPlayer" />
+
+    <TextView
+        android:id="@+id/healPotionCount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/counter"
+        android:layout_margin="2dp"
+        app:layout_constraintBottom_toBottomOf="@+id/imageButton"
+        app:layout_constraintEnd_toEndOf="@+id/imageButton"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@+id/imageButton" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/gameLog"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/imageOfPlayer"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/view"
+        app:reverseLayout="true"
+        app:stackFromEnd="true" />
+
+    <ImageButton
+        android:id="@+id/imageButton"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:backgroundTint="@android:color/transparent"
+        app:layout_constraintBottom_toBottomOf="@+id/imageOfPlayer"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.058"
+        app:layout_constraintStart_toEndOf="@+id/imageOfPlayer"
+        app:layout_constraintTop_toTopOf="@+id/imageOfPlayer"
+        app:layout_constraintVertical_bias="1.0"
+        app:srcCompat="@drawable/heal_potion" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
