@@ -152,10 +152,10 @@
         android:layout_height="wrap_content"
         android:text="@string/counter"
         android:layout_margin="2dp"
-        app:layout_constraintBottom_toBottomOf="@+id/imageButton"
-        app:layout_constraintEnd_toEndOf="@+id/imageButton"
+        app:layout_constraintBottom_toBottomOf="@+id/drinkHealPotion"
+        app:layout_constraintEnd_toEndOf="@+id/drinkHealPotion"
         app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="@+id/imageButton" />
+        app:layout_constraintStart_toStartOf="@+id/drinkHealPotion" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/gameLog"
@@ -169,7 +169,7 @@
         app:stackFromEnd="true" />
 
     <ImageButton
-        android:id="@+id/imageButton"
+        android:id="@+id/drinkHealPotion"
         android:layout_width="80dp"
         android:layout_height="80dp"
         android:backgroundTint="@android:color/transparent"
