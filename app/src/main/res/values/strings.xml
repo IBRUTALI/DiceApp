@@ -1,8 +1,14 @@
 <resources>
     <string name="app_name">DiceApp</string>
+    <!--  Base  -->
     <string name="hp">HP</string>
     <string name="armor">Armor</string>
     <string name="attack_power">Attack Power</string>
     <string name="name">Name</string>
     <string name="counter">Counter</string>
+    <!--  Content Description  -->
+    <string name="entity_image">entity image</string>
+    <string name="player_image">player image</string>
+    <string name="attack_image">attack image</string>
+    <string name="heal_potion_image">heal potion image</string>
 </resources>

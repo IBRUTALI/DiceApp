@@ -5,7 +5,7 @@ data class Player(
     override val armor: Int,
     override val maxHealPoint: Int,
     override val currentHealPoint: Int = maxHealPoint,
-    override val isDead: Boolean = false,
+    override val entityIsDead: Boolean = false,
     override val damage: IntRange,
     val healPotion: Int = 4
 ) : Entity(
@@ -13,11 +13,11 @@ data class Player(
     armor,
     maxHealPoint,
     currentHealPoint,
-    isDead,
+    entityIsDead,
     damage
 ) {
 
-    override fun isDead(): Boolean {
+    fun entityIsDead(): Boolean {
         return currentHealPoint < 1
     }
 
@@ -31,6 +31,10 @@ data class Player(
             } else restoredHP
 
         } else 0
+    }
+
+    override fun isDead(): Boolean {
+        TODO("Not yet implemented")
     }
 
 }

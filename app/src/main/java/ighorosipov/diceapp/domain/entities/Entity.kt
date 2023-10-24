@@ -5,7 +5,7 @@ abstract class Entity(
     open val armor: Int,
     open val maxHealPoint: Int,
     open val currentHealPoint: Int = maxHealPoint,
-    open val isDead: Boolean = false,
+    open val entityIsDead: Boolean = false,
     open val damage: IntRange,
 ) {
 

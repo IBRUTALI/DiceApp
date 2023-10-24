@@ -11,19 +11,21 @@
         android:id="@+id/nameOfEntity"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="@dimen/base_line_spacing"
         android:text="@string/name"
         app:layout_constraintBottom_toTopOf="@+id/imageOfEntity"
         app:layout_constraintEnd_toEndOf="@+id/imageOfEntity"
-        app:layout_constraintStart_toStartOf="@+id/imageOfEntity" />
+        app:layout_constraintStart_toStartOf="@+id/imageOfEntity"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
         android:id="@+id/imageOfEntity"
-        android:layout_width="200dp"
-        android:layout_height="200dp"
+        android:layout_width="@dimen/image_large"
+        android:layout_height="@dimen/image_large"
         android:layout_marginTop="48dp"
+        android:scaleType="centerCrop"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
+        android:contentDescription="@string/entity_image"
         app:layout_constraintTop_toTopOf="parent"
         tools:src="@tools:sample/avatars" />
 
@@ -77,20 +79,26 @@
 
     <ImageButton
         android:id="@+id/attackEntity"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
         android:layout_marginTop="8dp"
         android:backgroundTint="@android:color/transparent"
+        android:contentDescription="@string/attack_image"
+        app:layout_constraintBottom_toTopOf="@+id/attackPowerOfPlayer"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/view"
-        tools:srcCompat="@drawable/battle" />
+        app:layout_constraintVertical_bias="0.0"
+        app:srcCompat="@drawable/battle" />
 
     <ImageView
         android:id="@+id/imageOfPlayer"
-        android:layout_width="200dp"
-        android:layout_height="200dp"
+        android:layout_width="@dimen/image_large"
+        android:layout_height="@dimen/image_large"
         android:layout_marginBottom="48dp"
+        android:scaleType="centerCrop"
+        android:contentDescription="@string/player_image"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -100,8 +108,8 @@
         android:id="@+id/nameOfPlayer"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/base_line_spacing"
         android:text="@string/name"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/imageOfPlayer"
         app:layout_constraintStart_toStartOf="@+id/imageOfPlayer"
         app:layout_constraintTop_toBottomOf="@+id/imageOfPlayer" />
@@ -121,7 +129,7 @@
         android:id="@+id/hpOfPlayer"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="HP"
+        android:text="@string/hp"
         app:layout_constraintBottom_toTopOf="@+id/imageOfPlayer"
         app:layout_constraintEnd_toEndOf="@+id/imageOfPlayer"
         app:layout_constraintStart_toStartOf="@+id/imageOfPlayer" />
@@ -140,8 +148,8 @@
         android:id="@+id/attackPowerOfPlayer"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/attack_power"
         android:layout_marginBottom="@dimen/base_line_spacing"
+        android:text="@string/attack_power"
         app:layout_constraintBottom_toTopOf="@+id/armorOfPlayer"
         app:layout_constraintEnd_toEndOf="@+id/armorOfPlayer"
         app:layout_constraintStart_toStartOf="@+id/armorOfPlayer" />
@@ -173,6 +181,7 @@
         android:layout_width="80dp"
         android:layout_height="80dp"
         android:backgroundTint="@android:color/transparent"
+        android:contentDescription="@string/heal_potion_image"
         app:layout_constraintBottom_toBottomOf="@+id/imageOfPlayer"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.058"

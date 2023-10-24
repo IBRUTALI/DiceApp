@@ -5,16 +5,14 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
+import ighorosipov.diceapp.R
 import ighorosipov.diceapp.databinding.FragmentGameBinding
-import ighorosipov.diceapp.domain.entities.Monster
-import ighorosipov.diceapp.domain.entities.Player
 
 class GameFragment : Fragment() {
     private var _binding: FragmentGameBinding? = null
     private val binding get() = _binding!!
-    private var isPlayersMove = true
-    private lateinit var player: Player
-    private lateinit var monster: Monster
+    private val viewModel by viewModels<GameViewModel>()
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -28,12 +26,47 @@ class GameFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        test()
+
+        subscribe()
+
         binding.attackEntity.setOnClickListener {
-            onPlayersMoved { playerAttack() }
+            viewModel.onPlayersMoved()
         }
 
         binding.drinkHealPotion.setOnClickListener {
-            onPlayersMoved { drinkHealPotion() }
+            viewModel.drinkHealPotion()
+        }
+    }
+
+    private fun test() {
+        binding.imageOfEntity.setImageResource(R.drawable.orc)
+        binding.imageOfPlayer.setImageResource(R.drawable.dwarf)
+    }
+
+    private fun subscribe() {
+        viewModel.player.observe(viewLifecycleOwner) { player ->
+            binding.apply {
+                val playerArmor = resources.getString(R.string.armor) + ": ${player.armor}"
+                armorOfPlayer.text = playerArmor
+                val playerAttackPower = resources.getString(R.string.attack_power) + ": ${player.attackPower}"
+                attackPowerOfPlayer.text = playerAttackPower
+                val playerHP = "${player.currentHealPoint}/${player.maxHealPoint}"
+                hpOfPlayer.text = playerHP
+                val playerHealPotion = "${player.healPotion}"
+                healPotionCount.text = playerHealPotion
+            }
+        }
+
+        viewModel.monster.observe(viewLifecycleOwner) { entity ->
+            binding.apply {
+                val entityArmor = resources.getString(R.string.armor) + ": ${entity.armor}"
+                armorOfEntity.text = entityArmor
+                val entityAttackPower = resources.getString(R.string.attack_power) + ": ${entity.attackPower}"
+                attackPowerOfEntity.text = entityAttackPower
+                val entityHP = "${entity.currentHealPoint}/${entity.maxHealPoint}"
+                hpOfEntity.text = entityHP
+            }
         }
     }
 

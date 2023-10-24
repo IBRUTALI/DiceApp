@@ -1,20 +1,21 @@
 package ighorosipov.diceapp.presentation
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import ighorosipov.diceapp.data.EntitiesActionImpl
+import androidx.appcompat.app.AppCompatActivity
 import ighorosipov.diceapp.databinding.ActivityMainBinding
-import ighorosipov.diceapp.domain.entities.Monster
-import ighorosipov.diceapp.domain.entities.Player
+import ighorosipov.diceapp.presentation.game.GameFragment
 
 class MainActivity : AppCompatActivity() {
     private var _binding: ActivityMainBinding? = null
-    private var binding = _binding!!
+    private val binding get() = _binding!!
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         _binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        supportFragmentManager.beginTransaction()
+            .add(GameFragment(), "Game fragment")
+            .commit()
     }
 
     override fun onDestroy() {
