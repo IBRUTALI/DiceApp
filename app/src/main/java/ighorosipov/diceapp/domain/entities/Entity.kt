@@ -5,7 +5,6 @@ abstract class Entity(
     open val armor: Int,
     open val maxHealPoint: Int,
     open val currentHealPoint: Int = maxHealPoint,
-    open val entityIsDead: Boolean = false,
     open val damage: IntRange,
     open val lastNumberOnADice: Int?,
 ) {
@@ -33,5 +32,5 @@ abstract class Entity(
         return defenderHP - attackerDamage
     }
 
-    abstract fun entityIsDead(): Boolean
+    abstract fun entityIsAlive(): Boolean
 }

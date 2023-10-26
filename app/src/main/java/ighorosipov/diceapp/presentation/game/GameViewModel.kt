@@ -7,7 +7,7 @@ import ighorosipov.diceapp.data.EntitiesActionImpl
 import ighorosipov.diceapp.domain.entities.Monster
 import ighorosipov.diceapp.domain.entities.Player
 
-class GameViewModel: ViewModel() {
+class GameViewModel : ViewModel() {
     private val repository = EntitiesActionImpl()
 
     private val _player = MutableLiveData<Player>()
@@ -17,7 +17,7 @@ class GameViewModel: ViewModel() {
     val monster: LiveData<Monster> = _monster
 
     init {
-       _player.value = Player(
+        _player.value = Player(
             attackPower = (1..30).random(),
             armor = (1..30).random(),
             maxHealPoint = (0..30).random(),
@@ -32,17 +32,17 @@ class GameViewModel: ViewModel() {
     }
 
     fun onPlayersMoved() {
-        if (!player.value?.entityIsDead!! && !monster.value?.entityIsDead!!) {
+        if (player.value?.entityIsAlive() == true && monster.value?.entityIsAlive() == true) {
             _monster.value = repository.entityAttack(player.value!!, monster.value!!) as Monster
             Thread.sleep(200)
         }
-        if (!player.value?.entityIsDead!! && !monster.value?.entityIsDead!!) {
+        if (player.value?.entityIsAlive() == true && monster.value?.entityIsAlive() == true) {
             _player.value = repository.entityAttack(monster.value!!, player.value!!) as Player
         }
     }
 
     fun drinkHealPotion() {
-        if (!player.value?.entityIsDead!! && !monster.value?.entityIsDead!!) {
+        if (player.value?.entityIsAlive() == true) {
             _player.value = repository.drinkHealPotion(player.value!!)
         }
     }

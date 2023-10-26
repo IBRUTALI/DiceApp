@@ -5,7 +5,6 @@ data class Player(
     override val armor: Int,
     override val maxHealPoint: Int,
     override val currentHealPoint: Int = maxHealPoint,
-    override val entityIsDead: Boolean = false,
     override val damage: IntRange,
     override val lastNumberOnADice: Int? = null,
     val healPotion: Int = 4
@@ -14,7 +13,6 @@ data class Player(
     armor,
     maxHealPoint,
     currentHealPoint,
-    entityIsDead,
     damage,
     lastNumberOnADice
 ) {
@@ -28,8 +26,8 @@ data class Player(
         return restoredHP
     }
 
-    override fun entityIsDead(): Boolean {
-        return currentHealPoint < 1
+    override fun entityIsAlive(): Boolean {
+        return currentHealPoint > 0
     }
 
 }
