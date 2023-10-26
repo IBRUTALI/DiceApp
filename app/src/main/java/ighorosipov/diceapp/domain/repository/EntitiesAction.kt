@@ -5,7 +5,7 @@ import ighorosipov.diceapp.domain.entities.Player
 
 interface EntitiesAction {
 
-    fun entityAttack(attacker: Entity, defender: Entity): Int
+    fun entityAttack(attacker: Entity, defender: Entity): Entity
 
     fun drinkHealPotion(player: Player) : Player
 

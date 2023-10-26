@@ -6,22 +6,19 @@ data class Monster(
     override val maxHealPoint: Int,
     override val currentHealPoint: Int = maxHealPoint,
     override val entityIsDead: Boolean = false,
-    override val damage: IntRange
+    override val damage: IntRange,
+    override val lastNumberOnADice: Int? = null
 ) : Entity(
     attackPower,
     armor,
     maxHealPoint,
     currentHealPoint,
     entityIsDead,
-    damage
+    damage,
+    lastNumberOnADice
 ) {
-
-    fun entityIsDead(): Boolean {
+    override fun entityIsDead(): Boolean {
         return currentHealPoint < 1
-    }
-
-    override fun isDead(): Boolean {
-        TODO("Not yet implemented")
     }
 
 }

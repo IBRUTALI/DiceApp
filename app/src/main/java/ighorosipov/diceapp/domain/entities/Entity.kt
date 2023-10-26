@@ -7,37 +7,31 @@ abstract class Entity(
     open val currentHealPoint: Int = maxHealPoint,
     open val entityIsDead: Boolean = false,
     open val damage: IntRange,
+    open val lastNumberOnADice: Int?,
 ) {
 
     fun calculateAttackModifier(attackerPower: Int, defenderDefense: Int): Int {
-        return attackerPower - defenderDefense - 1
+        val attackModifier = attackerPower - defenderDefense - 1
+        return if (attackModifier > 0) attackModifier
+        else 1
     }
 
-    fun rollDice(attackModifier: Int): Boolean {
-        var isSuccess = false
-
+    fun rollDice(attackModifier: Int): Int {
+        var dice = (1..6).random()
         return if (attackModifier < 1) {
-            isSuccess = when ((1..6).random()) {
-                5, 6 -> true
-                else -> false
-            }
-            isSuccess
+            dice
         } else {
             for (i in 1..attackModifier) {
-                if (isSuccess) return isSuccess
-                isSuccess = when ((1..6).random()) {
-                    5, 6 -> true
-                    else -> false
-                }
+                dice = (1..6).random()
+                if (dice > 4) return dice
             }
-            isSuccess
+            dice
         }
-
     }
 
     fun calculateDamage(attackerDamage: Int, defenderHP: Int): Int {
         return defenderHP - attackerDamage
     }
 
-    abstract fun isDead(): Boolean
+    abstract fun entityIsDead(): Boolean
 }

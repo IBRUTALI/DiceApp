@@ -16,8 +16,6 @@ class GameViewModel: ViewModel() {
     private val _monster = MutableLiveData<Monster>()
     val monster: LiveData<Monster> = _monster
 
-    private val isPlayersMove = false
-
     init {
        _player.value = Player(
             attackPower = (1..30).random(),
@@ -28,30 +26,24 @@ class GameViewModel: ViewModel() {
         _monster.value = Monster(
             attackPower = (1..30).random(),
             armor = (1..30).random(),
-            maxHealPoint = (0..30).random(),
+            maxHealPoint = (1..30).random(),
             damage = (1..30)
         )
     }
 
     fun onPlayersMoved() {
-        if (!player.value?.entityIsDead!! && !monster.value?.entityIsDead!! && isPlayersMove) {
-            _monster.value = monster.value?.copy(
-                currentHealPoint = repository.entityAttack(player.value!!, monster.value!!)
-            )
+        if (!player.value?.entityIsDead!! && !monster.value?.entityIsDead!!) {
+            _monster.value = repository.entityAttack(player.value!!, monster.value!!) as Monster
             Thread.sleep(200)
         }
-        if (!player.value?.entityIsDead!! && !monster.value?.entityIsDead!! && isPlayersMove) {
-            _player.value = player.value?.copy(
-                currentHealPoint =  repository.entityAttack(monster.value!!, player.value!!)
-            )
-            Thread.sleep(200)
+        if (!player.value?.entityIsDead!! && !monster.value?.entityIsDead!!) {
+            _player.value = repository.entityAttack(monster.value!!, player.value!!) as Player
         }
     }
 
     fun drinkHealPotion() {
-        if (!player.value?.entityIsDead!! && !monster.value?.entityIsDead!! && isPlayersMove) {
+        if (!player.value?.entityIsDead!! && !monster.value?.entityIsDead!!) {
             _player.value = repository.drinkHealPotion(player.value!!)
-            Thread.sleep(200)
         }
     }
 }
