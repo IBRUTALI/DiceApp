@@ -3,6 +3,7 @@ package ighorosipov.diceapp.domain.entities
 data class Monster(
     override val id: String? = null,
     override val name: String,
+    override val image: String? = null,
     override val attackPower: Int,
     override val armor: Int,
     override val maxHealPoint: Int,
@@ -11,6 +12,7 @@ data class Monster(
 ) : Entity(
     id,
     name,
+    image,
     attackPower,
     armor,
     maxHealPoint,

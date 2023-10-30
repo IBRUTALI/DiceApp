@@ -1,8 +1,9 @@
 package ighorosipov.diceapp.domain.entities
 
 abstract class Entity(
-    open val id: String? = null,
+    open val id: String?,
     open val name: String,
+    open val image: String?,
     open val attackPower: Int,
     open val armor: Int,
     open val maxHealPoint: Int,

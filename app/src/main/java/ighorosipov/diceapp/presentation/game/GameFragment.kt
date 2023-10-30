@@ -51,25 +51,27 @@ class GameFragment : Fragment() {
     private fun subscribe() {
         viewModel.player.observe(viewLifecycleOwner) { player ->
             binding.apply {
-                val playerArmor = resources.getString(R.string.armor) + ": ${player.armor}"
+                val playerArmor = "${player.armor}"
                 armorOfPlayer.text = playerArmor
-                val playerAttackPower = resources.getString(R.string.attack_power) + ": ${player.attackPower}"
+                val playerAttackPower = "${player.attackPower}"
                 attackPowerOfPlayer.text = playerAttackPower
                 val playerHP = "${player.currentHealPoint}/${player.maxHealPoint}"
                 hpOfPlayer.text = playerHP
                 val playerHealPotion = "${player.healPotion}"
                 healPotionCount.text = playerHealPotion
+                nameOfPlayer.text = player.name
             }
         }
 
         viewModel.monster.observe(viewLifecycleOwner) { entity ->
             binding.apply {
-                val entityArmor = resources.getString(R.string.armor) + ": ${entity.armor}"
+                val entityArmor = "${entity.armor}"
                 armorOfEntity.text = entityArmor
-                val entityAttackPower = resources.getString(R.string.attack_power) + ": ${entity.attackPower}"
+                val entityAttackPower = "${entity.attackPower}"
                 attackPowerOfEntity.text = entityAttackPower
                 val entityHP = "${entity.currentHealPoint}/${entity.maxHealPoint}"
                 hpOfEntity.text = entityHP
+                nameOfEntity.text = entity.name
             }
         }
 

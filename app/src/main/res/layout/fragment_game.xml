@@ -40,6 +40,16 @@
         app:layout_constraintStart_toStartOf="@+id/imageOfEntity"
         app:layout_constraintTop_toBottomOf="@+id/imageOfEntity" />
 
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="4dp"
+        android:contentDescription="@string/hp"
+        android:src="@drawable/heart"
+        app:layout_constraintBottom_toBottomOf="@+id/progressHPOfEntity"
+        app:layout_constraintStart_toEndOf="@+id/hpOfEntity"
+        app:layout_constraintTop_toBottomOf="@+id/imageOfEntity" />
+
     <TextView
         android:id="@+id/hpOfEntity"
         android:layout_width="wrap_content"
@@ -58,6 +68,26 @@
         app:layout_constraintEnd_toEndOf="@+id/imageOfEntity"
         app:layout_constraintStart_toStartOf="@+id/imageOfEntity"
         app:layout_constraintTop_toBottomOf="@+id/hpOfEntity" />
+
+    <ImageView
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:layout_margin="4dp"
+        android:contentDescription="@string/armor"
+        android:src="@drawable/armor"
+        app:layout_constraintBottom_toBottomOf="@+id/armorOfEntity"
+        app:layout_constraintEnd_toStartOf="@+id/armorOfEntity"
+        app:layout_constraintTop_toTopOf="@+id/armorOfEntity" />
+
+    <ImageView
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:layout_margin="4dp"
+        android:contentDescription="@string/attack_power"
+        android:src="@drawable/attack_power"
+        app:layout_constraintBottom_toBottomOf="@+id/attackPowerOfEntity"
+        app:layout_constraintEnd_toStartOf="@+id/attackPowerOfEntity"
+        app:layout_constraintTop_toTopOf="@+id/attackPowerOfEntity" />
 
     <TextView
         android:id="@+id/attackPowerOfEntity"
@@ -125,6 +155,16 @@
         app:layout_constraintEnd_toEndOf="@+id/imageOfPlayer"
         app:layout_constraintStart_toStartOf="@+id/imageOfPlayer" />
 
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:contentDescription="@string/hp"
+        android:layout_margin="4dp"
+        android:src="@drawable/heart"
+        app:layout_constraintBottom_toBottomOf="@+id/hpOfPlayer"
+        app:layout_constraintStart_toEndOf="@+id/hpOfPlayer"
+        app:layout_constraintTop_toTopOf="@+id/hpOfPlayer" />
+
     <TextView
         android:id="@+id/hpOfPlayer"
         android:layout_width="wrap_content"
@@ -133,6 +173,16 @@
         app:layout_constraintBottom_toTopOf="@+id/imageOfPlayer"
         app:layout_constraintEnd_toEndOf="@+id/imageOfPlayer"
         app:layout_constraintStart_toStartOf="@+id/imageOfPlayer" />
+
+    <ImageView
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:contentDescription="@string/armor"
+        android:src="@drawable/armor"
+        android:layout_margin="4dp"
+        app:layout_constraintBottom_toBottomOf="@+id/armorOfPlayer"
+        app:layout_constraintEnd_toStartOf="@+id/armorOfPlayer"
+        app:layout_constraintTop_toTopOf="@+id/armorOfPlayer" />
 
     <TextView
         android:id="@+id/armorOfPlayer"
@@ -143,6 +193,16 @@
         app:layout_constraintBottom_toTopOf="@+id/hpOfPlayer"
         app:layout_constraintEnd_toEndOf="@+id/hpOfPlayer"
         app:layout_constraintStart_toStartOf="@+id/hpOfPlayer" />
+
+    <ImageView
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:contentDescription="@string/attack_power"
+        android:layout_margin="4dp"
+        android:src="@drawable/attack_power"
+        app:layout_constraintBottom_toBottomOf="@+id/attackPowerOfPlayer"
+        app:layout_constraintEnd_toStartOf="@+id/attackPowerOfPlayer"
+        app:layout_constraintTop_toTopOf="@+id/attackPowerOfPlayer" />
 
     <TextView
         android:id="@+id/attackPowerOfPlayer"

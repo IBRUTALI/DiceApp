@@ -12,4 +12,6 @@
     <string name="attack_image">attack image</string>
     <string name="heal_potion_image">heal potion image</string>
     <string name="log">Log</string>
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
 </resources>
