@@ -6,10 +6,11 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView.LayoutManager
 import ighorosipov.diceapp.R
 import ighorosipov.diceapp.databinding.FragmentGameBinding
+
 
 class GameFragment : Fragment() {
     private var _binding: FragmentGameBinding? = null
@@ -30,8 +31,8 @@ class GameFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         test()
-
         subscribe()
+        setupAdapter()
 
         binding.attackEntity.setOnClickListener {
             viewModel.onPlayersMoved()
@@ -71,12 +72,22 @@ class GameFragment : Fragment() {
                 hpOfEntity.text = entityHP
             }
         }
+
+        viewModel.log.observe(viewLifecycleOwner) { log ->
+            adapter.setData(log)
+        }
     }
 
     private fun setupAdapter() {
         binding.apply {
-            gameLog.layoutManager = LinearLayoutManager(requireContext())
+            val layoutManager = LinearLayoutManager(requireContext())
+            gameLog.layoutManager = layoutManager
             gameLog.adapter = adapter
+            val dividerItemDecoration = DividerItemDecoration(
+                gameLog.context,
+                layoutManager.orientation
+            )
+            gameLog.addItemDecoration(dividerItemDecoration)
         }
     }
 

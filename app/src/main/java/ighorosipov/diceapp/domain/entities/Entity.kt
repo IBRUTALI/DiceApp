@@ -1,12 +1,13 @@
 package ighorosipov.diceapp.domain.entities
 
 abstract class Entity(
+    open val id: String? = null,
+    open val name: String,
     open val attackPower: Int,
     open val armor: Int,
     open val maxHealPoint: Int,
     open val currentHealPoint: Int = maxHealPoint,
-    open val damage: IntRange,
-    open val lastNumberOnADice: Int?,
+    open val damage: IntRange
 ) {
 
     fun calculateAttackModifier(attackerPower: Int, defenderDefense: Int): Int {
