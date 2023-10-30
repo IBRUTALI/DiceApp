@@ -1,5 +1,6 @@
 package ighorosipov.diceapp.presentation.game
 
+import android.animation.ObjectAnimator
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -60,6 +61,10 @@ class GameFragment : Fragment() {
                 val playerHealPotion = "${player.healPotion}"
                 healPotionCount.text = playerHealPotion
                 nameOfPlayer.text = player.name
+                progressHPOfPlayer.max = player.maxHealPoint
+                ObjectAnimator.ofInt(progressHPOfPlayer, "progress", player.currentHealPoint)
+                    .setDuration(50)
+                    .start()
             }
         }
 
@@ -72,6 +77,10 @@ class GameFragment : Fragment() {
                 val entityHP = "${entity.currentHealPoint}/${entity.maxHealPoint}"
                 hpOfEntity.text = entityHP
                 nameOfEntity.text = entity.name
+                progressHPOfEntity.max = entity.maxHealPoint
+                ObjectAnimator.ofInt(progressHPOfEntity, "progress", entity.currentHealPoint)
+                    .setDuration(200)
+                    .start()
             }
         }
 
@@ -82,7 +91,7 @@ class GameFragment : Fragment() {
 
     private fun setupAdapter() {
         binding.apply {
-            val layoutManager = LinearLayoutManager(requireContext())
+            val layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, true)
             gameLog.layoutManager = layoutManager
             gameLog.adapter = adapter
             val dividerItemDecoration = DividerItemDecoration(
