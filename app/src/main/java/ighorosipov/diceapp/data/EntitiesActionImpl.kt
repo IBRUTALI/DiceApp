@@ -7,8 +7,9 @@ import ighorosipov.diceapp.domain.entities.Player
 import ighorosipov.diceapp.domain.repository.EntitiesAction
 import ighorosipov.diceapp.utils.Entities
 import java.util.UUID
+import javax.inject.Inject
 
-class EntitiesActionImpl : EntitiesAction {
+class EntitiesActionImpl @Inject constructor() : EntitiesAction {
     private var log = mutableListOf<GameLog>()
     private var numbOnADice = 0
 
@@ -63,7 +64,7 @@ class EntitiesActionImpl : EntitiesAction {
         } else player
     }
 
-    fun getLog() = log
+    override fun getLog() = log
 
     fun getNumbOnADice() = numbOnADice
 

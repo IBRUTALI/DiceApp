@@ -116,9 +116,11 @@
         android:id="@+id/view"
         android:layout_width="match_parent"
         android:layout_height="1dp"
-        android:background="@android:color/darker_gray"
-        app:layout_constraintBottom_toTopOf="@+id/imageOfPlayer"
-        app:layout_constraintTop_toBottomOf="@+id/imageOfEntity" />
+        android:background="@android:color/black"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <ImageButton
         android:id="@+id/attackEntity"
@@ -127,12 +129,9 @@
         android:layout_marginTop="8dp"
         android:backgroundTint="@android:color/transparent"
         android:contentDescription="@string/attack_image"
-        app:layout_constraintBottom_toTopOf="@+id/attackPowerOfPlayer"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/view"
-        app:layout_constraintVertical_bias="0.0"
         app:srcCompat="@drawable/battle" />
 
     <ImageView

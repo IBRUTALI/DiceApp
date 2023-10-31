@@ -1,6 +1,7 @@
 package ighorosipov.diceapp.presentation.game
 
 import android.animation.ObjectAnimator
+import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -11,12 +12,19 @@ import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import ighorosipov.diceapp.R
 import ighorosipov.diceapp.databinding.FragmentGameBinding
+import ighorosipov.diceapp.presentation.start.CreateFragment.Companion.PLAYER_NAME
+import ighorosipov.diceapp.utils.GameState
+import ighorosipov.diceapp.utils.extensions.appComponent
+import ighorosipov.diceapp.utils.extensions.lazyViewModel
+import ighorosipov.diceapp.utils.extensions.showAlert
 
 
 class GameFragment : Fragment() {
     private var _binding: FragmentGameBinding? = null
     private val binding get() = _binding!!
-    private val viewModel by viewModels<GameViewModel>()
+    private val viewModel: GameViewModel by lazyViewModel {
+        requireContext().appComponent().gameViewModel().create(arguments?.getString(PLAYER_NAME))
+    }
     private val adapter by lazy { LogAdapter() }
 
     override fun onCreateView(
@@ -96,6 +104,34 @@ class GameFragment : Fragment() {
             adapter.setData(log)
             binding.gameLog.scrollToPosition(log.size - 1)
         }
+
+        viewModel.gameState.observe(viewLifecycleOwner) { state ->
+            when (state) {
+                GameState.WIN -> {
+                    showAlert(
+                        title = "Win",
+                        message = "You are winner",
+                        positiveButtonText = "Next fight",
+                        onPositiveButtonClick = { viewModel.restartGame() },
+                        onNegativeButtonClick = { activity?.finish() }
+                    )
+                }
+
+                GameState.LOSE -> {
+                    showAlert(
+                        title = "Lose",
+                        message = "You are loser",
+                        positiveButtonText = "Restart",
+                        onPositiveButtonClick = { viewModel.restartGame() },
+                        onNegativeButtonClick = { activity?.finish() }
+                    )
+                }
+
+                else -> {
+
+                }
+            }
+        }
     }
 
     private fun setupAdapter() {
@@ -110,6 +146,15 @@ class GameFragment : Fragment() {
             )
             gameLog.addItemDecoration(dividerItemDecoration)
         }
+    }
+
+    private fun inject() {
+        requireContext().appComponent().inject(this)
+    }
+
+    override fun onAttach(context: Context) {
+        inject()
+        super.onAttach(context)
     }
 
     override fun onDestroy() {

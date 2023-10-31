@@ -1,4 +1,4 @@
-package ighorosipov.diceapp.utils
+package ighorosipov.diceapp.utils.extensions
 
 import android.app.AlertDialog
 import android.widget.Toast
@@ -19,14 +19,19 @@ fun Fragment.showToast(
 fun Fragment.showAlert(
     title: String,
     message: String,
-    onClick: () -> Unit = { }
+    positiveButtonText: String,
+    onPositiveButtonClick: () -> Unit = { },
+    onNegativeButtonClick: () -> Unit = { }
 ) {
     AlertDialog.Builder(requireContext())
         .setTitle(title)
         .setMessage(message)
-        .setPositiveButton(R.string.yes) { _, _ ->
-            onClick.invoke()
+        .setCancelable(false)
+        .setPositiveButton(positiveButtonText) { _, _ ->
+            onPositiveButtonClick.invoke()
         }
-        .setNegativeButton(getString(R.string.no)) { _, _ -> }
+        .setNegativeButton(getString(R.string.exit)) { _, _ ->
+            onNegativeButtonClick.invoke()
+        }
         .show()
 }

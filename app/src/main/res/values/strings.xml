@@ -15,4 +15,9 @@
     <string name="yes">Yes</string>
     <string name="no">No</string>
     <string name="progress">progress</string>
+    <string name="exit">Exit</string>
+    <string name="create_your_character">Create your character</string>
+    <string name="character_name">Character name</string>
+    <string name="enter_name">Enter name</string>
+    <string name="fight">Fight</string>
 </resources>
