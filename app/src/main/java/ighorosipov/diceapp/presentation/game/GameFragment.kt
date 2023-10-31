@@ -62,7 +62,11 @@ class GameFragment : Fragment() {
                 healPotionCount.text = playerHealPotion
                 nameOfPlayer.text = player.name
                 progressHPOfPlayer.max = player.maxHealPoint
-                ObjectAnimator.ofInt(progressHPOfPlayer, "progress", player.currentHealPoint)
+                ObjectAnimator.ofInt(
+                    progressHPOfPlayer,
+                    getString(R.string.progress),
+                    player.currentHealPoint
+                )
                     .setDuration(50)
                     .start()
             }
@@ -78,7 +82,11 @@ class GameFragment : Fragment() {
                 hpOfEntity.text = entityHP
                 nameOfEntity.text = entity.name
                 progressHPOfEntity.max = entity.maxHealPoint
-                ObjectAnimator.ofInt(progressHPOfEntity, "progress", entity.currentHealPoint)
+                ObjectAnimator.ofInt(
+                    progressHPOfEntity,
+                    getString(R.string.progress),
+                    entity.currentHealPoint
+                )
                     .setDuration(200)
                     .start()
             }
@@ -86,12 +94,14 @@ class GameFragment : Fragment() {
 
         viewModel.log.observe(viewLifecycleOwner) { log ->
             adapter.setData(log)
+            binding.gameLog.scrollToPosition(log.size - 1)
         }
     }
 
     private fun setupAdapter() {
         binding.apply {
-            val layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, true)
+            val layoutManager =
+                LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, true)
             gameLog.layoutManager = layoutManager
             gameLog.adapter = adapter
             val dividerItemDecoration = DividerItemDecoration(

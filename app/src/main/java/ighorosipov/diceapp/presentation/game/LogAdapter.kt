@@ -34,8 +34,6 @@ class LogAdapter: RecyclerView.Adapter<LogAdapter.LogViewHolder>() {
             } else Color.RED
             val spannable = SpannableString(text)
             spannable.setSpan(ForegroundColorSpan(color), 0, (text).length, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE)
-
-
             logTextView.setText(spannable, TextView.BufferType.SPANNABLE)
         }
     }

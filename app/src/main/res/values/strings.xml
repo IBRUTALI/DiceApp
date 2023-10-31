@@ -14,4 +14,5 @@
     <string name="log">Log</string>
     <string name="yes">Yes</string>
     <string name="no">No</string>
+    <string name="progress">progress</string>
 </resources>
