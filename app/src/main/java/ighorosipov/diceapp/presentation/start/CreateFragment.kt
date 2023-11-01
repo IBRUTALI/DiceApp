@@ -9,6 +9,7 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import ighorosipov.diceapp.R
 import ighorosipov.diceapp.databinding.FragmentCreateBinding
+import ighorosipov.diceapp.presentation.start.dialog.SelectImageAlertDialog
 
 class CreateFragment : Fragment() {
     private var _binding: FragmentCreateBinding? = null
@@ -32,6 +33,12 @@ class CreateFragment : Fragment() {
                     PLAYER_NAME to binding.titleInputLayout.editText?.text.toString()
                 )
             )
+        }
+        binding.playerImage.setOnClickListener {
+            val dialogFragment = SelectImageAlertDialog {
+
+            }
+            dialogFragment.show(childFragmentManager, "SELECT_IMAGE_DIALOG")
         }
     }
 

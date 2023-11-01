@@ -2,4 +2,7 @@
 <resources>
     <dimen name="base_line_spacing">8dp</dimen>
     <dimen name="image_large">180dp</dimen>
+    <dimen name="dialog_button_size">130dp</dimen>
+    <dimen name="base_corner_radius">20dp</dimen>
+    <dimen name="image_medium">150dp</dimen>
 </resources>

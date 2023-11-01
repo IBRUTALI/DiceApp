@@ -6,10 +6,9 @@ import androidx.lifecycle.ViewModel
 import dagger.assisted.Assisted
 import dagger.assisted.AssistedFactory
 import dagger.assisted.AssistedInject
-import ighorosipov.diceapp.data.EntitiesActionImpl
-import ighorosipov.diceapp.domain.entities.GameLog
-import ighorosipov.diceapp.domain.entities.Monster
-import ighorosipov.diceapp.domain.entities.Player
+import ighorosipov.diceapp.domain.model.GameLog
+import ighorosipov.diceapp.domain.model.entities.Monster
+import ighorosipov.diceapp.domain.model.entities.Player
 import ighorosipov.diceapp.domain.repository.EntitiesAction
 import ighorosipov.diceapp.utils.GameState
 

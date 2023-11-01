@@ -11,7 +11,7 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.RecyclerView.ViewHolder
 import ighorosipov.diceapp.databinding.ItemLogBinding
-import ighorosipov.diceapp.domain.entities.GameLog
+import ighorosipov.diceapp.domain.model.GameLog
 import ighorosipov.diceapp.utils.Entities
 
 class LogAdapter: RecyclerView.Adapter<LogAdapter.LogViewHolder>() {

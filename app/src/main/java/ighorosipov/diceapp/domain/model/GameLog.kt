@@ -1,4 +1,4 @@
-package ighorosipov.diceapp.domain.entities
+package ighorosipov.diceapp.domain.model
 
 import ighorosipov.diceapp.utils.Entities
 

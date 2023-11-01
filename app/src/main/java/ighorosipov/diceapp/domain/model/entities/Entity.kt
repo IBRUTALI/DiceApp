@@ -1,4 +1,4 @@
-package ighorosipov.diceapp.domain.entities
+package ighorosipov.diceapp.domain.model.entities
 
 abstract class Entity(
     open val id: String?,

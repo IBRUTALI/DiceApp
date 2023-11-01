@@ -1,7 +1,7 @@
 package ighorosipov.diceapp.presentation.game
 
 import androidx.recyclerview.widget.DiffUtil
-import ighorosipov.diceapp.domain.entities.GameLog
+import ighorosipov.diceapp.domain.model.GameLog
 
 class LogDifUtil(
     private val oldList: List<GameLog>,

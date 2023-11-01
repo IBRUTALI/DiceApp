@@ -76,6 +76,7 @@
 
     <!-- Button styles. -->
     <style name="BaseButton" parent="Widget.Material3.Button">
+        <item name="android:includeFontPadding">false</item>
         <item name="strokeColor">@color/orange</item>
         <item name="strokeWidth">1dp</item>
     </style>
@@ -85,6 +86,13 @@
         <item name="android:textSize">20sp</item>
         <item name="android:fontFamily">@font/didact_gothic_regular</item>
         <item name="backgroundTint">@color/orange</item>
+    </style>
+
+    <style name="BaseButton.Secondary">
+        <item name="android:textColor">@color/orange</item>
+        <item name="android:textSize">20sp</item>
+        <item name="android:fontFamily">@font/didact_gothic_regular</item>
+        <item name="backgroundTint">@color/transparent</item>
     </style>
 
 </resources>

@@ -4,41 +4,53 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:animateLayoutChanges="true"
     tools:context=".presentation.start.CreateFragment">
 
     <TextView
         android:id="@+id/titleTextView"
+        style="@style/Text.Title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
-        style="@style/Text.Title"
         android:text="@string/create_your_character"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <ImageView
-        android:id="@+id/playerImage"
-        android:layout_width="@dimen/image_large"
-        android:layout_height="@dimen/image_large"
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
+        android:elevation="20dp"
+        app:cardCornerRadius="@dimen/base_corner_radius"
         app:layout_constraintEnd_toEndOf="@+id/titleTextView"
         app:layout_constraintStart_toStartOf="@+id/titleTextView"
-        app:layout_constraintTop_toBottomOf="@+id/titleTextView"
-        tools:srcCompat="@tools:sample/avatars" />
+        app:layout_constraintTop_toBottomOf="@+id/titleTextView">
+
+        <ImageView
+            android:id="@+id/playerImage"
+            android:layout_width="@dimen/image_large"
+            android:layout_height="@dimen/image_large"
+            android:contentDescription="@string/entity_image"
+            android:scaleType="centerCrop"
+            android:src="@drawable/dwarf"/>
+
+    </androidx.cardview.widget.CardView>
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/titleInputLayout"
         style="@style/TextInputLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginVertical="24dp"
         android:layout_marginHorizontal="10dp"
+        android:layout_marginVertical="24dp"
         android:hint="@string/character_name"
         app:helperText="@string/enter_name"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/playerImage">
+        app:layout_constraintTop_toBottomOf="@+id/cardView">
 
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
@@ -52,8 +64,9 @@
         style="@style/BaseButton.Main"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:paddingVertical="5dp"
         android:text="@string/fight"
+        app:icon="@drawable/battle"
+        app:iconTint="@color/white"
         app:layout_constraintEnd_toEndOf="@+id/titleInputLayout"
         app:layout_constraintStart_toStartOf="@+id/titleInputLayout"
         app:layout_constraintTop_toBottomOf="@+id/titleInputLayout" />
