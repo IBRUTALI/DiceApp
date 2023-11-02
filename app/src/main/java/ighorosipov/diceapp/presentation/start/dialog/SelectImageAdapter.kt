@@ -9,7 +9,6 @@ import ighorosipov.diceapp.R
 import ighorosipov.diceapp.databinding.ItemSelectImageBinding
 
 class SelectImageAdapter: RecyclerView.Adapter<SelectImageAdapter.SelectImageViewHolder>() {
-    private var selectedPos = RecyclerView.NO_POSITION
     private var onClickListener: OnClickListener? = null
     private val imageList = listOf(
         R.drawable.archer,
@@ -33,7 +32,6 @@ class SelectImageAdapter: RecyclerView.Adapter<SelectImageAdapter.SelectImageVie
         return SelectImageViewHolder(binding)
     }
 
-
     override fun onBindViewHolder(holder: SelectImageViewHolder, position: Int) {
         holder.binding.apply {
             Glide.with(holder.itemView.context)
@@ -41,12 +39,10 @@ class SelectImageAdapter: RecyclerView.Adapter<SelectImageAdapter.SelectImageVie
                 .centerCrop()
                 .into(itemImage)
         }
-        holder.itemView.isSelected = selectedPos == position
         holder.itemView.setOnClickListener {
             if (onClickListener != null) {
                 onClickListener?.onClick(position, imageList[position])
                 notifyItemChanged(position)
-                selectedPos = holder.layoutPosition
             }
         }
     }

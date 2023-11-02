@@ -14,6 +14,7 @@ import ighorosipov.diceapp.utils.GameState
 
 class GameViewModel @AssistedInject constructor(
     @Assisted private val playerName: String?,
+    @Assisted private val playerImage: Int?,
     private val repository: EntitiesAction
 ) : ViewModel() {
 
@@ -32,6 +33,7 @@ class GameViewModel @AssistedInject constructor(
     init {
         _player.value = Player(
             name = playerName ?: "Player",
+            image = playerImage,
             attackPower = (1..30).random(),
             armor = (1..30).random(),
             maxHealPoint = (0..30).random(),
@@ -72,6 +74,7 @@ class GameViewModel @AssistedInject constructor(
     fun restartGame() {
         _player.value = Player(
             name = player.value?.name ?: "Player",
+            image = player.value?.image,
             attackPower = (1..30).random(),
             armor = (1..30).random(),
             maxHealPoint = (0..30).random(),
@@ -90,7 +93,10 @@ class GameViewModel @AssistedInject constructor(
 
     @AssistedFactory
     interface Factory {
-        fun create(@Assisted playerName: String?): GameViewModel
+        fun create(
+            @Assisted playerName: String?,
+            @Assisted playerImage: Int?
+        ): GameViewModel
     }
 
 }

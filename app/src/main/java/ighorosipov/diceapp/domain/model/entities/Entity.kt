@@ -3,7 +3,7 @@ package ighorosipov.diceapp.domain.model.entities
 abstract class Entity(
     open val id: String?,
     open val name: String,
-    open val image: String?,
+    open val image: Int?,
     open val attackPower: Int,
     open val armor: Int,
     open val maxHealPoint: Int,

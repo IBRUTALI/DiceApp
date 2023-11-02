@@ -31,8 +31,8 @@
 
         <ImageView
             android:id="@+id/playerImage"
-            android:layout_width="@dimen/image_large"
-            android:layout_height="@dimen/image_large"
+            android:layout_width="@dimen/image_size_large"
+            android:layout_height="@dimen/image_size_large"
             android:contentDescription="@string/entity_image"
             android:scaleType="centerCrop"
             android:src="@drawable/dwarf"/>

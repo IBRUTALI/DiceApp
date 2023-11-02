@@ -10,8 +10,10 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.bumptech.glide.Glide
 import ighorosipov.diceapp.R
 import ighorosipov.diceapp.databinding.FragmentGameBinding
+import ighorosipov.diceapp.presentation.start.CreateFragment.Companion.PLAYER_IMAGE
 import ighorosipov.diceapp.presentation.start.CreateFragment.Companion.PLAYER_NAME
 import ighorosipov.diceapp.utils.GameState
 import ighorosipov.diceapp.utils.extensions.appComponent
@@ -23,7 +25,10 @@ class GameFragment : Fragment() {
     private var _binding: FragmentGameBinding? = null
     private val binding get() = _binding!!
     private val viewModel: GameViewModel by lazyViewModel {
-        requireContext().appComponent().gameViewModel().create(arguments?.getString(PLAYER_NAME))
+        requireContext().appComponent().gameViewModel().create(
+            arguments?.getString(PLAYER_NAME),
+            arguments?.getInt(PLAYER_IMAGE)
+        )
     }
     private val adapter by lazy { LogAdapter() }
 
@@ -54,7 +59,11 @@ class GameFragment : Fragment() {
 
     private fun test() {
         binding.imageOfEntity.setImageResource(R.drawable.orc)
-        binding.imageOfPlayer.setImageResource(R.drawable.dwarf)
+        Glide.with(requireContext())
+            .load(viewModel.player.value?.image)
+            .error(R.drawable.dwarf)
+            .centerCrop()
+            .into(binding.imageOfPlayer)
     }
 
     private fun subscribe() {

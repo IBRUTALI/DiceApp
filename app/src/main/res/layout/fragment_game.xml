@@ -19,8 +19,8 @@
 
     <ImageView
         android:id="@+id/imageOfEntity"
-        android:layout_width="@dimen/image_large"
-        android:layout_height="@dimen/image_large"
+        android:layout_width="@dimen/image_size_large"
+        android:layout_height="@dimen/image_size_large"
         android:layout_marginTop="48dp"
         android:contentDescription="@string/entity_image"
         android:scaleType="centerCrop"
@@ -33,8 +33,8 @@
         android:id="@+id/progressHPOfEntity"
         style="@style/CustomProgressBarHorizontal"
         android:layout_width="0dp"
-        android:layout_marginVertical="2dp"
         android:layout_height="wrap_content"
+        android:layout_marginVertical="2dp"
         app:layout_constraintEnd_toEndOf="@+id/imageOfEntity"
         app:layout_constraintStart_toStartOf="@+id/imageOfEntity"
         app:layout_constraintTop_toBottomOf="@+id/imageOfEntity" />
@@ -82,8 +82,8 @@
 
     <ImageView
         android:id="@+id/imageView5"
-        android:layout_width="24dp"
-        android:layout_height="24dp"
+        android:layout_width="@dimen/image_size_small"
+        android:layout_height="@dimen/image_size_small"
         android:layout_margin="4dp"
         android:contentDescription="@string/armor"
         android:src="@drawable/armor"
@@ -93,8 +93,8 @@
 
     <ImageView
         android:id="@+id/imageView4"
-        android:layout_width="24dp"
-        android:layout_height="24dp"
+        android:layout_width="@dimen/image_size_small"
+        android:layout_height="@dimen/image_size_small"
         android:layout_margin="4dp"
         android:contentDescription="@string/attack_power"
         android:src="@drawable/attack_power"
@@ -122,22 +122,24 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <ImageButton
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/attackEntity"
-        android:layout_width="48dp"
-        android:layout_height="48dp"
+        style="@style/BaseButton.Main"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
-        android:backgroundTint="@android:color/transparent"
         android:contentDescription="@string/attack_image"
+        android:text="@string/attack"
+        app:icon="@drawable/battle"
+        app:iconTint="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/view"
-        app:srcCompat="@drawable/battle" />
+        app:layout_constraintTop_toBottomOf="@+id/view" />
 
     <ImageView
         android:id="@+id/imageOfPlayer"
-        android:layout_width="@dimen/image_large"
-        android:layout_height="@dimen/image_large"
+        android:layout_width="@dimen/image_size_large"
+        android:layout_height="@dimen/image_size_large"
         android:layout_marginBottom="48dp"
         android:contentDescription="@string/player_image"
         android:scaleType="centerCrop"
@@ -200,8 +202,8 @@
 
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="24dp"
-        android:layout_height="24dp"
+        android:layout_width="@dimen/image_size_small"
+        android:layout_height="@dimen/image_size_small"
         android:layout_margin="4dp"
         android:layout_marginEnd="4dp"
         android:layout_marginBottom="16dp"
@@ -223,8 +225,8 @@
 
     <ImageView
         android:id="@+id/imageView2"
-        android:layout_width="24dp"
-        android:layout_height="24dp"
+        android:layout_width="@dimen/image_size_small"
+        android:layout_height="@dimen/image_size_small"
         android:layout_margin="4dp"
         android:contentDescription="@string/attack_power"
         android:src="@drawable/attack_power"
@@ -266,8 +268,8 @@
 
     <ImageButton
         android:id="@+id/drinkHealPotion"
-        android:layout_width="80dp"
-        android:layout_height="80dp"
+        android:layout_width="@dimen/image_size_normal"
+        android:layout_height="@dimen/image_size_normal"
         android:backgroundTint="@android:color/transparent"
         android:contentDescription="@string/heal_potion_image"
         app:layout_constraintBottom_toBottomOf="@+id/imageOfPlayer"

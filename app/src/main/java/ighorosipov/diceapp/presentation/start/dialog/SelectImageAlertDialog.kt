@@ -20,9 +20,6 @@ class SelectImageAlertDialog(
         val binding = DialogSelectImageBinding.inflate(layoutInflater)
         binding.apply {
             itemClickListener()
-            btnOK.setOnClickListener {
-                onImageClick
-            }
             btnCancel.setOnClickListener {
                 dismiss()
             }
@@ -43,7 +40,8 @@ class SelectImageAlertDialog(
     private fun itemClickListener() {
         adapter.setOnClickListener(object : SelectImageAdapter.OnClickListener {
             override fun onClick(position: Int, image: Int) {
-
+                onImageClick.invoke(image)
+                dismiss()
             }
         })
     }

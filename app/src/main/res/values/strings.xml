@@ -11,15 +11,19 @@
     <string name="player_image">player image</string>
     <string name="attack_image">attack image</string>
     <string name="heal_potion_image">heal potion image</string>
-    <string name="log">Log</string>
+    <!--  Alert Dialog  -->
     <string name="yes">Yes</string>
     <string name="no">No</string>
-    <string name="progress">progress</string>
-    <string name="exit">Exit</string>
+    <!--  CreateFragment  -->
     <string name="create_your_character">Create your character</string>
     <string name="character_name">Character name</string>
     <string name="enter_name">Enter name</string>
     <string name="fight">Fight</string>
     <string name="select">Select</string>
     <string name="cancel">Cancel</string>
+    <!--  GameFragment  -->
+    <string name="log">Log</string>
+    <string name="progress">progress</string>
+    <string name="exit">Exit</string>
+    <string name="attack">Attack</string>
 </resources>

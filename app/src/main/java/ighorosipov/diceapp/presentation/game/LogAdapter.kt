@@ -25,7 +25,6 @@ class LogAdapter: RecyclerView.Adapter<LogAdapter.LogViewHolder>() {
         return LogViewHolder(binding)
     }
 
-
     override fun onBindViewHolder(holder: LogViewHolder, position: Int) {
         holder.binding.apply {
             val text = logList[position].message
