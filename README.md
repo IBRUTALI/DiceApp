@@ -5,7 +5,8 @@
 ## Быстрый обзор приложения:
 
 <p align="center">
-  <img src="https://github.com/IBRUTALI/DiceApp/assets/96013243/52d30de9-9cff-45a3-9855-c3f6692eb043" alt="DiceApp Demo" title="DiceApp Demo" width="250" height="500"/>
+  <img src="https://github.com/IBRUTALI/DiceApp/assets/96013243/52d30de9-9cff-45a3-9855-c3f6692eb043" alt="DiceApp Demo" title="DiceApp Demo" width="250" height="525"/>
+  <h4 align="center">DiceApp Demo</h4>
 </p>
 
 У игрока и монстров есть показатели урона и брони. Урон по существу наносится, исходя из показателей урона и брони, или не наносится(промах или непробитие), исходя из броска кубика.  
