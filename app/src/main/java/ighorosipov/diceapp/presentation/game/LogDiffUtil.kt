@@ -3,7 +3,7 @@ package ighorosipov.diceapp.presentation.game
 import androidx.recyclerview.widget.DiffUtil
 import ighorosipov.diceapp.domain.model.GameLog
 
-class LogDifUtil(
+class LogDiffUtil(
     private val oldList: List<GameLog>,
     private val newList: List<GameLog>
 ) : DiffUtil.Callback() {

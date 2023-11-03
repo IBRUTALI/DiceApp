@@ -42,7 +42,7 @@ class LogAdapter: RecyclerView.Adapter<LogAdapter.LogViewHolder>() {
     }
 
     fun setData(newList: List<GameLog>) {
-        val diffUtil = LogDifUtil(logList, newList)
+        val diffUtil = LogDiffUtil(logList, newList)
         val diffResult = DiffUtil.calculateDiff(diffUtil)
         diffResult.dispatchUpdatesTo(this)
         logList = newList

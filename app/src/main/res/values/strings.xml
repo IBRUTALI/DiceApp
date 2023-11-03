@@ -26,4 +26,5 @@
     <string name="progress">progress</string>
     <string name="exit">Exit</string>
     <string name="attack">Attack</string>
+    <string name="enter_character_name">Enter character name</string>
 </resources>

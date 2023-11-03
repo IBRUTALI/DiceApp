@@ -1,10 +1,12 @@
 package ighorosipov.diceapp.presentation.start
 
 import android.os.Bundle
+import android.text.Editable
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.core.os.bundleOf
+import androidx.core.widget.doAfterTextChanged
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.bumptech.glide.Glide
@@ -34,13 +36,15 @@ class CreateFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         subscribe()
         binding.fightButton.setOnClickListener {
-            findNavController().navigate(
-                R.id.action_createFragment_to_gameFragment,
-                bundleOf(
-                    PLAYER_NAME to binding.titleInputLayout.editText?.text.toString(),
-                    PLAYER_IMAGE to viewModel.playerImage.value
+            validatePlayerName {
+                findNavController().navigate(
+                    R.id.action_createFragment_to_gameFragment,
+                    bundleOf(
+                        PLAYER_NAME to binding.nameInputLayout.editText?.text.toString(),
+                        PLAYER_IMAGE to viewModel.playerImage.value
+                    )
                 )
-            )
+            }
         }
         binding.playerImage.setOnClickListener {
             val dialogFragment = SelectImageAlertDialog {
@@ -57,9 +61,29 @@ class CreateFragment : Fragment() {
                 .centerCrop()
                 .into(binding.playerImage)
         }
+
+        viewModel.playerName.observe(viewLifecycleOwner) { playerName ->
+            binding.nameInputLayout.editText?.text = Editable.Factory.getInstance().newEditable(playerName)
+        }
     }
 
+    private fun validatePlayerName(onCreateClick: () -> Unit) {
+        binding.apply {
+            nameInputLayout.editText?.doAfterTextChanged {
+                nameInputLayout.error = null
+            }
+            if (nameInputLayout.editText == null || nameInputLayout.editText?.text?.isBlank() == true) {
+                nameInputLayout.error = getString(R.string.enter_character_name)
+            } else {
+                onCreateClick.invoke()
+            }
+        }
+    }
 
+    override fun onSaveInstanceState(outState: Bundle) {
+        viewModel.setPlayerName(binding.nameInputLayout.editText?.text.toString())
+        super.onSaveInstanceState(outState)
+    }
 
     override fun onDestroy() {
         super.onDestroy()

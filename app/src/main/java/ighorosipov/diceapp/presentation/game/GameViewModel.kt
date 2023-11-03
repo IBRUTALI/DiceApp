@@ -55,7 +55,7 @@ class GameViewModel @AssistedInject constructor(
             _gameState.value = GameState.WIN
             return
         }
-        Thread.sleep(200)
+
         _player.value = repository.entityAttack(monster.value!!, player.value!!) as Player
         _log.value = repository.getLog()
         if (player.value?.entityIsAlive() == false) {
